@@ -1,5 +1,5 @@
 import {GET} from "./server"
-import  {StoreManager } from "js-state"
+import  {StoreManager } from "javascript-state"
 import {render} from "./view/render"
 
 
