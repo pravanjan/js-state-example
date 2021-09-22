@@ -1,5 +1,5 @@
 import {GET} from "./server"
-import {StoreManager} from "js-state"
+import {StoreManager} from "javascript-state"
 import {render} from "./view/render"
 
 const storeManager = StoreManager.getInstance();
@@ -11,7 +11,7 @@ const init =async()=>{
   let response = await GET(apiUrl);
     console.log(response);
     let param = {
-        name:"peoplestore",
+        name:"userStore",
         state:response.results[0],
      }
     let userstore = storeManager.createStore(param);

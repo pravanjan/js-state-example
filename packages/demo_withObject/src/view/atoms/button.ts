@@ -1,24 +1,29 @@
-import {StoreManager } from "js-state";
-import dataJson from "../../utils.json"
+import {StoreManager } from "javascript-state";
+import {GET} from "../../server"
+import { updateUser } from "../../useractions";
 
-const buttonTemplate = (data:any):HTMLTemplateElement=> {
+const apiUrl = "https://randomuser.me/api/?results=1";
+
+const buttonTemplate = ():HTMLTemplateElement=> {
    let template:HTMLTemplateElement = document.createElement('template');
    template.innerHTML = `
-      <input class="btn btn-primary" type="button" value="${data.name}">
+      <input class="btn btn-primary" type="button" value="Update">
       `
       return template;
 
 
 }
 
-export default (data:any, actions)=>{
-   let userStore = StoreManager.getInstance().getStore("peoplestore");
-   let buttonTemp:HTMLTemplateElement = buttonTemplate(data);
+export default ()=>{
+
+   let buttonTemp:HTMLTemplateElement = buttonTemplate();
    let button =  buttonTemp.content.firstElementChild.cloneNode(true);
    
-   button.addEventListener("click",(event)=>{
+   button.addEventListener("click",async (event)=>{
+      let store = StoreManager.getInstance().getStore("userStore");
+      let res = await GET(apiUrl)
       event.stopPropagation();
-      userStore.dispatch(actions,dataJson.name);
+      store.dispatch(updateUser,res.results[0].picture);
    });
     return button;
 

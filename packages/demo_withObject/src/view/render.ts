@@ -1,6 +1,6 @@
 import userview from "./atoms/userview";
-import { default as Button } from "./atoms/button";
 import { updateUser } from "../useractions";
+import {default as updateButton} from "./atoms/button"
 import * as styles  from "./css/app.css";
 
 
@@ -10,18 +10,6 @@ const buttonHolder = document.querySelector(".buttonHolder");
 const styleEle = document.createElement('style');
 styleEle.innerHTML = `${styles["default"][0][1]}`;
 document.querySelector("body").appendChild(styleEle);
-
-export  const AddButton  = (data, action)=>{
-  let button = Button(data, action);
-  return button;
-}
-
-
-const updateButton  = {
-  name:"update"
-}
-
-
 
 
 export const render =(data:any)=>{
@@ -38,7 +26,7 @@ export const render =(data:any)=>{
 
   const AddingButton=()=>{
     if(!document.querySelector(".btn.btn-primary")){
-      buttonHolder.appendChild(AddButton(updateButton, updateUser));
+      buttonHolder.appendChild(updateButton());
     }
    
   
