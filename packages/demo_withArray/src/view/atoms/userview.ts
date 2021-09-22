@@ -1,6 +1,5 @@
-
-
-
+import { StoreManager } from "javascript-state";
+import { deleteUser } from "../../useractions";
 
 
 const isEmptyObject = (value) =>{
@@ -15,6 +14,9 @@ const userTeamplate =   (data:any):HTMLTemplateElement =>{
      <!-- Begin user profile -->
    <div class="box-info text-center user-profile-2">
      <div class="header-cover">
+      <button type="button" class="close" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
        <img src="https://via.placeholder.com/350x280/87CEFA/000000" alt="User cover">
      </div>
      <div class="user-profile-inner">
@@ -32,12 +34,17 @@ const userTeamplate =   (data:any):HTMLTemplateElement =>{
 }
 
 export default  (data:any)=>{
-  if(!isEmptyObject(data)){
-    let userview:HTMLTemplateElement =  userTeamplate(data);
-    return userview.content.cloneNode(true);
+  let userStore = StoreManager.getInstance().getStore("userStore");
+  if(isEmptyObject(data)){
+    return null;
   }
   else {
-    return null;
+      let userview:HTMLTemplateElement =  userTeamplate(data);
+      userview.content.querySelector(".close").addEventListener("click",()=>{
+      userStore.dispatch(deleteUser,data);
+
+    });
+    return userview.content;
   }
 
 }

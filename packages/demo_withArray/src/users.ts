@@ -12,7 +12,7 @@ const init =async()=>{
   let response = await GET(apiUrl);
    //Create sotore object with name and user list i.e reposne.results
     let param = {
-        name:"peoplestore",
+        name:"userStore",
         state:response.results,
      }
     let userstore = storeManager.createStore(param);

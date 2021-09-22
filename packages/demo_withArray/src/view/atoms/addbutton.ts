@@ -18,7 +18,7 @@ return input;
 
 const AddNewUser = async()=>{
    let res = await GET(apiUrl);
-   let userStore = StoreManager.getInstance().getStore("peoplestore");
+   let userStore = StoreManager.getInstance().getStore("userStore");
    userStore.dispatch(AddNew,res.results[0]);
 
 }
