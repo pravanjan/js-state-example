@@ -1,6 +1,5 @@
 import userview from "./atoms/userview";
 import { AddNewButton } from "./atoms/addbutton";
-import { AddNew, deleteUser, updateUser } from "../useractions";
 import * as styles  from "./css/app.css";
 
 

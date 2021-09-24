@@ -1,5 +1,4 @@
 import userview from "./atoms/userview";
-import { updateUser } from "../useractions";
 import {default as updateButton} from "./atoms/button"
 import * as styles  from "./css/app.css";
 

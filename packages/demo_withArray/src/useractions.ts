@@ -18,13 +18,14 @@ export const AddNew = (state , payload)=>{
 call the subscribe render method. */
 
 export const deleteUser = (state , payload)=>{
-    console.log("Delete Action")
+    console.log("Delete Action",payload)
     const isPresent  = (el) => el.login.uuid == payload.login.uuid;
     const index = state.findIndex(isPresent)
     console.log("isPresent",index);
     if(index >= 0){
          state.splice(index,1);
     }    
+    console.log(state)
     return  state;
   }
 

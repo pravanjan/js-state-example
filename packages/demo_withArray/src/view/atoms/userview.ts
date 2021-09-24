@@ -1,4 +1,4 @@
-import { StoreManager } from "javascript-state";
+import { StoreManager } from "js-state-manager";
 import { deleteUser } from "../../useractions";
 
 

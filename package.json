@@ -6,7 +6,6 @@
     "version": "1.0.0",
     "description": "This is simple javascript libray to maanger your state  written in Typescript for  javascript user.",
     "scripts": {
-        "build": "npm run build -w=js-state",
         "build:array": "npm run build -w=demo_withArray",
         "build:object": "npm run build -w=demo_withObject",
         "start:array": "npm run dev -w=demo_withArray",
@@ -19,8 +18,8 @@
         "@types/jest": "^27.0.1",
         "css-loader": "^6.2.0",
         "html-webpack-plugin": "^5.3.2",
-        "javascript-state": "^1.0.1",
         "jest": "^27.0.6",
+        "js-state-manager": "^1.0.6",
         "raw-loader": "^4.0.2",
         "react": "^17.0.2",
         "style-loader": "^3.2.1",
