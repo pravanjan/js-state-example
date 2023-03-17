@@ -1,43 +1,43 @@
 const path = require("path");
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { Template } = require("webpack");
 
 module.exports = {
   mode: "development",
-  devtool:"inline-source-map",
-  
+  devtool: "inline-source-map",
+
   entry: {
     main: ["./src/users.ts"],
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: [".ts", ".js"],
   },
   module: {
-
     rules: [
-
       {
         enforce: "pre",
         test: /\.css$/,
         exclude: /node_modules/,
         loader: "css-loader",
       },
-    { test: /\.ts?$/, loader: "ts-loader" },
-   ],
+      { test: /\.ts?$/, loader: "ts-loader" },
+    ],
   },
 
   output: {
-    path: path.resolve(__dirname, "dist"),
+    path: path.resolve(__dirname, "public"),
     filename: "index.js",
     sourceMapFilename: "index.js.map",
-    publicPath: "/dist/",
+    publicPath: "/public/",
   },
-  plugins: [new HtmlWebpackPlugin({
-    template:"public/index.html"
-  })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "template/index.html",
+    }),
+  ],
 
   devServer: {
-    contentBase: path.join(__dirname, "./dist"),
+    contentBase: path.join(__dirname, "./public"),
     compress: true,
     hot: true,
     watchContentBase: true,
